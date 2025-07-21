@@ -5,8 +5,7 @@
                  <li class="menu-title" key="t-menu">Menu</li>
                  <li>
                      <a href="{{ route('dashboard') }}" class="waves-effect">
-                         <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">SMAN
-                             01</span>
+                         <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">Menu</span>
                          <span key="t-dashboards">Dashboards</span>
                      </a>
                  </li>
