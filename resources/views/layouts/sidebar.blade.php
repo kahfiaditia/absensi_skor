@@ -57,7 +57,7 @@
                      <ul class="sub-menu" aria-expanded="false">
                          @if (Auth::user()->roles == 'Administrator')
                              <li><a href="{{ route('absensi_laporan.index') }}" key="t-products">Laporan Absensi</a></li>
-                             <li><a href="#" key="t-product-detail">Laporan Skor Pegawai</a></li>
+                             <li><a href="{{ route('ranking.index') }}" key="t-product-detail">Laporan Skor Pegawai</a></li>
                          @endif
                          
                      </ul>

@@ -10,6 +10,7 @@ use App\Http\Controllers\KepDepartemenController;
 use App\Http\Controllers\KepJabatanController;
 use App\Http\Controllers\KepLaporanController;
 use App\Http\Controllers\KepPegawaiController;
+use App\Http\Controllers\KepRankingController;
 use App\Http\Controllers\KepSettingController;
 use App\Http\Controllers\KepSkorController;
 use App\Http\Controllers\ListAbsenController;
@@ -67,6 +68,19 @@ Route::group(
         Route::get('/get_data_laporan', [KepLaporanController::class, 'get_data_laporan'])->name('get_data_laporan');
          Route::get('export_data', [KepLaporanController::class, 'export_data'])->name('export_data');
 
+         //kepegawaian ranking
+        // Route::resource('/ranking', KepRankingController::class);
+        Route::prefix('kepegawaian')->group(function() {
+            Route::resource('ranking', KepRankingController::class)->names([
+                'index' => 'ranking.index',
+                'create' => 'ranking.create',
+                'store' => 'ranking.store',
+                'show' => 'ranking.show',
+                'edit' => 'ranking.edit',
+                'update' => 'ranking.update',
+                'destroy' => 'ranking.destroy'
+            ]);
+        });
         
       
         // menu
