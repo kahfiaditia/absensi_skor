@@ -30,7 +30,7 @@ use App\Http\Controllers\UserController;
 */
 
 // Route::get('/', [FrontendController::class, 'grafik'])->name('awal');
-Route::get('/grafik', [FrontendController::class, 'grafik'])->name('grafik');
+
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('/recovery', [LoginController::class, 'recovery'])->name('recovery');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
