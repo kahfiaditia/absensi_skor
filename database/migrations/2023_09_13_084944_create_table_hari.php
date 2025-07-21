@@ -13,7 +13,7 @@ class CreateTableHari extends Migration
      */
     public function up()
     {
-        Schema::create('table_hari', function (Blueprint $table) {
+        Schema::create('kep_hari', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('kode')->unsigned()->nullable();
             $table->string('nama_hari', 20);
@@ -29,6 +29,6 @@ class CreateTableHari extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_hari');
+        Schema::dropIfExists('kep_hari');
     }
 }

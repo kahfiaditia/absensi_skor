@@ -10,75 +10,61 @@
                          <span key="t-dashboards">Dashboards</span>
                      </a>
                  </li>
-                 <li class="menu-title" key="t-apps">Apps</li>
-                 <li>
+                 <li class="menu-title" key="t-apps">Menu</li>
+                  <li>
                      <a href="{{ route('pengguna.profil') }}" class="waves-effect">
                          <i class="bx bx-user-circle"></i>
                          <span key="t-calendar">Profil User</span>
                      </a>
                  </li>
-                 @if (Auth::user()->roles == 'Administrator')
-                     <li>
-                         <a href="{{ route('pengguna.alluser') }}" class="waves-effect">
-                             <i class="bx bx-list-ul"></i>
-                             <span key="bx bx-list-ul">List User</span>
-                         </a>
-                     </li>
-                     <li>
+                  <li>
                          <a href="{{ route('pengguna.admin') }}" class="waves-effect">
                              <i class="bx bx-aperture"></i>
-                             <span key="t-icons">Administrator</span>
+                             <span key="t-icons">User Management</span>
                          </a>
                      </li>
-                     {{-- <li>
-                         <a href="{{ route('pengguna.data_guru') }}" class="waves-effect">
-                             <i class="bx bx-task"></i>
-                             <span key="t-task-list">Data Guru</span>
-                         </a>
-                     </li> --}}
-                     <li>
-                         <a href="{{ route('class.index') }}" class="waves-effect">
-                             <i class="bx bx-receipt"></i>
-                             <span key="t-invoice-list">Data Kelas</span>
-                         </a>
-                     </li>
-                     <li>
-                         <a href="{{ route('pengguna.index') }}" class="waves-effect">
-                             <i class="bx bxs-user-detail"></i>
-                             <span key="t-chat">Data Siswa</span>
-                         </a>
-                     </li>
-                 @endif
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
-                         <i class="bx bx-store"></i>
-                         <span key="t-ecommerce">Evoting</span>
+                         <i class="bx bx-note"></i>
+                         <span key="t-ecommerce">Manajemen</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
                          @if (Auth::user()->roles == 'Administrator')
-                             <li><a href="{{ route('periode.index') }}" key="t-products">Periode</a></li>
-                             <li><a href="{{ route('kandidat.index') }}" key="t-product-detail">Kandidat</a></li>
+                            <li><a href="{{ route('setting_data.index') }}" key="t-products">Jam Kerja</a></li>
+                             <li><a href="{{ route('departemen.index') }}" key="t-products">Departemen</a></li>
+                             <li><a href="{{ route('jabatan_data.index') }}" key="t-product-detail">Jabatan</a></li>
+                             <li><a href="{{ route('skor_data.index') }}" key="t-orders">Nilai Skor</a></li>
+                             <li><a href="{{ route('pegawai_data.index') }}" key="t-orders">Data Pegawai</a></li>
                          @endif
-                         <li><a href="{{ route('vote.index') }}" key="t-orders">Voting</a></li>
+                         
                      </ul>
                  </li>
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
-                         <i class="bx bx-label"></i>
-                         <span key="t-ecommerce">Ekstra Kulikuler</span>
+                         <i class="bx bx-analyse"></i>
+                         <span key="t-ecommerce">Absensi</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
-                         <li><a href="{{ route('kegiatan.index') }}" key="t-products">Kegiatan</a></li>
-                         <li><a href="{{ route('pembina.index') }}" key="t-products">Pembina</a></li>
-                         <li><a href="{{ route('jadwal.index') }}" key="t-product-detail">Jadwal</a></li>
-                         <li><a href="{{ route('follow.create') }}" key="t-orders">Ikuti</a></li>
-                         <li><a href="{{ route('daftar_mandiri.index') }}" key="t-orders">Daftar Kegiatan</a>
-                         </li>
-                         <li><a href="{{ route('daftar_absensi.index') }}" key="t-orders">Absensi</a></li>
-                         <li><a href="{{ route('absen_mandiri.index') }}" key="t-orders">Absen Mandiri</a></li>
-                         <li><a href="{{ route('data_list_absen.index') }}" key="t-orders">Data Absensi</a></li>
+                             <li><a href="{{ route('absensi_pegawai.create') }}" key="t-products">Absensi</a></li>
+                             {{-- <li><a href="#" key="t-product-detail">Absensi Mandiri</a></li> --}}
                      </ul>
                  </li>
+                 <li>
+                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                         <i class="bx bx-history"></i>
+                         <span key="t-ecommerce">Laporan</span>
+                     </a>
+                     <ul class="sub-menu" aria-expanded="false">
+                         @if (Auth::user()->roles == 'Administrator')
+                             <li><a href="{{ route('absensi_laporan.index') }}" key="t-products">Laporan Absensi</a></li>
+                             <li><a href="#" key="t-product-detail">Laporan Skor Pegawai</a></li>
+                         @endif
+                         
+                     </ul>
+                 </li>
+               
+                
+ 
              </ul>
          </div>
      </div>

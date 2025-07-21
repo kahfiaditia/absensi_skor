@@ -26,7 +26,7 @@
                                     <div class="text-primary" style="padding: 15px 0px 0px 25px;">
                                         <h5 class="text-primary">Welcome Back !</h5>
                                         Sign in to
-                                        <p>System Information E-Votting.</p>
+                                        <p>System Information Kepegawaian.</p>
                                     </div>
                                 </div>
                                 <div class="col-5 align-self-end">
@@ -79,12 +79,12 @@
                                     novalidate>
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="validationCustom02" class="form-label">Username</label>
-                                        <input type="text" class="form-control" name="nis" id="nis"
-                                            placeholder="Nis / Nik" autocomplete="off" autofocus
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                        <label for="validationCustom02" class="form-label">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email"
+                                            placeholder="Masukan Email" autocomplete="off" autofocus
+                                             required>
                                         <div class="invalid-feedback">
-                                            Mohon masukan NIK atau NISN anda!
+                                            Mohon masukan NIP!
                                         </div>
                                         {{-- {!! $errors->first('nis', '<div class="invalid-validasi" style="color:red">:message</div>') !!} --}}
                                     </div>
@@ -92,7 +92,7 @@
                                         <label class="form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
                                             <input type="password" name="password" minlength="5" class="form-control"
-                                                placeholder="Password" aria-label="Password"
+                                                placeholder="Masukan Password" aria-label="Password"
                                                 aria-describedby="password-addon" required>
                                             <button class="btn btn-light" type="button" id="password-addon"><i
                                                     class="mdi mdi-eye-outline"></i></button>
@@ -114,7 +114,7 @@
                         <div>
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> | SMA Negeri 1 Kota Gajah
+                            </script> | PT. DAG DIG DUG DIGITAL
                             </p>
                         </div>
                     </div>

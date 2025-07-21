@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    protected $title = 'E-Votting';
+    protected $title = 'Absensi Kepegaiawan';
     protected $menu = 'login';
     /**
      * Display a listing of the resource.
@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'nis' => 'required',
+            'email' => 'required',
             'password' => 'required',
             'aktif' => '0',
         ]);

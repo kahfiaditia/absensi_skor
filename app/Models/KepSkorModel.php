@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class HariModel extends Model
+class KepSkorModel extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'kep_hari';
+    protected $table = 'kep_skor';
     protected $guarded = [];
 }

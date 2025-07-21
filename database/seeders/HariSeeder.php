@@ -14,7 +14,7 @@ class HariSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('table_hari')->insert([
+        DB::table('kep_hari')->insert([
             ['kode' => 1, 'nama_hari' => 'Senin'],
             ['kode' => 2, 'nama_hari' => 'Selasa'],
             ['kode' => 3, 'nama_hari' => 'Rabu'],

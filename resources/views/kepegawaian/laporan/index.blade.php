@@ -11,16 +11,6 @@
                                 <li class="breadcrumb-item">{{ ucwords($menu) }}</li>
                             </ol>
                         </div>
-                        {{-- <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                @if (Auth::user()->id == 1)
-                                    <a href="{{ route('pengguna.tambah_adminiptrator') }}" type="button"
-                                        class="float-end btn btn-success btn-rounded waves-effect waves-light mb-2 me-2">
-                                        <i class="mdi mdi-plus me-1"></i> Adminiptrator
-                                    </a>
-                                @endif
-                            </ol>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -28,7 +18,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            {{-- <div class="accordion" id="accordionExample">
+                            <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button fw-medium <?php if (isset($_GET['name'])) {
@@ -43,8 +33,8 @@
                                     </h2>
 
                                     <div id="collapseOne" class="accordion-collapse collapse <?php
-                                    if (isset($_GET['name']) or isset($_GET['email']) or isset($_GET['nip']) or isset($_GET['nik']) or isset($_GET['address']) or isset($_GET['phone']) or isset($_GET['roles'])) {
-                                        if ($_GET['name'] != null or $_GET['email'] != null or $_GET['nip'] != null or $_GET['nik'] != null or $_GET['address'] != null or $_GET['phone'] != null or $_GET['roles'] != null) {
+                                    if (isset($_GET['nip']) or isset($_GET['nama']) or isset($_GET['hari_absen']) or isset($_GET['skor']) or isset($_GET['tgl_start']) or isset($_GET['tgl_end'])) {
+                                        if ((isset($_GET['nip']) && $_GET['nip'] != null) || (isset($_GET['nama']) && $_GET['nama'] != null) || (isset($_GET['hari_absen']) && $_GET['hari_absen'] != null) || (isset($_GET['skor']) && $_GET['skor'] != null) || (isset($_GET['tgl_start']) && $_GET['tgl_start'] != null) || (isset($_GET['tgl_end']) && $_GET['tgl_end'] != null)) {
                                             echo 'show';
                                         }
                                     }
@@ -61,46 +51,52 @@
                                                         <div class="col-md-12">
                                                             <div class="row">
                                                                 <div class="col-md-2 mb-2">
-                                                                    <input type="text" name="name" id="name"
-                                                                        value="{{ isset($_GET['name']) ? $_GET['name'] : null }}"
+                                                                    <input type="text" name="nip" id="nip"
+                                                                        value="{{ isset($_GET['nip']) ? $_GET['nip'] : null }}"
+                                                                        class="form-control" placeholder="NIP"
+                                                                        autocomplete="off">
+                                                                </div>
+                                                                <div class="col-sm-2 mb-2">
+                                                                    <input type="text" name="nama" id="nama"
+                                                                        value="{{ isset($_GET['nama']) ? $_GET['nama'] : null }}"
                                                                         class="form-control" placeholder="Nama"
                                                                         autocomplete="off">
                                                                 </div>
                                                                 <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="email" id="email"
-                                                                        value="{{ isset($_GET['email']) ? $_GET['email'] : null }}"
-                                                                        class="form-control" placeholder="Email"
+                                                                    <input type="text" name="hari_absen" id="hari_absen"
+                                                                        value="{{ isset($_GET['hari_absen']) ? $_GET['hari_absen'] : null }}"
+                                                                        class="form-control" placeholder="Hari"
                                                                         autocomplete="off">
                                                                 </div>
+
+
                                                                 <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="nip" id="nip"
-                                                                        value="{{ isset($_GET['nip']) ? $_GET['nip'] : null }}"
-                                                                        class="form-control" placeholder="nip"
+                                                                    <input type="text" name="skor" id="skor"
+                                                                        value="{{ isset($_GET['skor']) ? $_GET['skor'] : null }}"
+                                                                        class="form-control" placeholder="Skor"
                                                                         autocomplete="off">
                                                                 </div>
-                                                                <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="nik" id="nik"
-                                                                        value="{{ isset($_GET['nik']) ? $_GET['nik'] : null }}"
-                                                                        class="form-control" placeholder="Nik"
-                                                                        autocomplete="off">
-                                                                </div>
-                                                                <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="address" id="address"
-                                                                        value="{{ isset($_GET['address']) ? $_GET['address'] : null }}"
-                                                                        class="form-control" placeholder="Alamat"
-                                                                        autocomplete="off">
-                                                                </div>
-                                                                <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="phone" id="phone"
-                                                                        value="{{ isset($_GET['phone']) ? $_GET['phone'] : null }}"
-                                                                        class="form-control" placeholder="telepon"
-                                                                        autocomplete="off">
-                                                                </div>
-                                                                <div class="col-sm-2 mb-2">
-                                                                    <input type="text" name="roles" id="roles"
-                                                                        value="{{ isset($_GET['roles']) ? $_GET['roles'] : null }}"
-                                                                        class="form-control" placeholder="Roles"
-                                                                        autocomplete="off">
+
+
+
+                                                                <div class="col-sm-4 mb-2">
+                                                                    <div class="input-daterange input-group">
+
+                                                                        <div class="input-daterange input-group"
+                                                                            id="datepicker6" data-date-format="dd M, yyyy"
+                                                                            data-date-autoclose="true"
+                                                                            data-provide="datepicker"
+                                                                            data-date-container='#datepicker6'>
+                                                                            <input type="text" class="form-control"
+                                                                                name="tgl_start" id="tgl_start"
+                                                                                placeholder="Start Date"
+                                                                                value="{{ isset($_GET['tgl_start']) ? $_GET['tgl_start'] : null }}" />
+                                                                            <input type="text" class="form-control"
+                                                                                name="tgl_end" id="tgl_end"
+                                                                                placeholder="End Date"
+                                                                                value="{{ isset($_GET['tgl_end']) ? $_GET['tgl_end'] : null }}" />
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -130,17 +126,23 @@
                                                         <div class="col-sm-10 mb-2">
                                                             <button type="submit"
                                                                 class="btn btn-primary w-md">Cari</button>
-                                                            <a href="{{ route('pengguna.alluser') }}"
+                                                            <a href="{{ route('absensi_laporan.index') }}"
                                                                 class="btn btn-secondary w-md">Batal</a>
-                                                            @if (isset($_GET['name']) or isset($_GET['like']))
+                                                            @if (isset($_GET['kode']) or isset($_GET['like']))
                                                                 <?php
-                                                                $name = $_GET['name'];
-                                                                $email = $_GET['email'];
                                                                 $nip = $_GET['nip'];
-                                                                $nik = $_GET['nik'];
-                                                                $address = $_GET['address'];
-                                                                $phone = $_GET['phone'];
-                                                                $roles = $_GET['roles'];
+                                                                $nama = $_GET['nama'];
+                                                                $hari_absen = $_GET['hari_absen'];
+                                                                
+                                                                $skor = $_GET['skor'];
+                                                                
+                                                                $tgl_start = $_GET['tgl_start'];
+                                                                $tgl_end = $_GET['tgl_end'];
+                                                                if (isset($_GET['type'])) {
+                                                                    $type = $_GET['type'];
+                                                                } else {
+                                                                    $type = null;
+                                                                }
                                                                 $search_manual = $_GET['search_manual'];
                                                                 if (isset($_GET['like'])) {
                                                                     $like = $_GET['like'];
@@ -148,6 +150,35 @@
                                                                     $like = null;
                                                                 }
                                                                 ?>
+                                                                <a href="{{ route(
+                                                                    'export_data',
+                                                                    'nip=' .
+                                                                        $nip .
+                                                                        '&nama=' .
+                                                                        $nama .
+                                                                        '&hari_absen=' .
+                                                                        $hari_absen .
+                                                                        '&skor=' .
+                                                                        $skor .
+                                                                        '&tgl_start=' .
+                                                                        $tgl_start .
+                                                                        '&tgl_end=' .
+                                                                        $tgl_end .
+                                                                        '&type=' .
+                                                                        $type .
+                                                                        '&search_manual=' .
+                                                                        $search_manual .
+                                                                        '&like=' .
+                                                                        $like .
+                                                                        '',
+                                                                ) }}"
+                                                                    class="btn btn-success btn-rounded waves-effect waves-light w-md"><i
+                                                                        class="bx bx-cloud-download me-1"></i>Unduh
+                                                                    Excel</a>
+                                                            @else
+                                                                <a href="{{ route('export_data') }}"
+                                                                    class="btn btn-success btn-rounded waves-effect waves-light w-md"><i
+                                                                        class="bx bx-cloud-download me-1"></i>Unduh</a>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -157,34 +188,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <br> --}}
+                            <br>
                             <table id="datatable" class="table table-striped dt-responsive nowrap w-100">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
                                         <th>NIP</th>
-                                        <th>Alamat</th>
-                                        <th>Telepon</th>
-                                        {{-- <th>Nik</th> --}}
-                                        <th>Roles</th>
-                                        {{-- <th>Aksi</th> --}}
+                                        <th>Nama</th>
+                                        <th>Hari</th>
+                                        <th>Absen</th>
+                                        <th>Terlambat</th>
+                                        <th>Skor</th>
+                                        <th>Keterangan</th>
+                                        <th>Tanggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ( $data_user as $user )
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->nip }}</td>
-                                        <td>{{ $user->address }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->roles }}</td>
-                                     </tr>
-                                    @endforeach
-                                     
                                 </tbody>
                             </table>
                         </div>
@@ -195,17 +214,35 @@
     </div>
     <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/alert.js') }}"></script>
-    {{-- <script>
+    <script>
+        $(document).ready(function() {
+            // Initialize datepicker
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+                orientation: 'bottom'
+            });
+
+            // For range datepicker
+            $('#datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+                orientation: 'bottom'
+            });
+        });
+
         function toggleCheckbox() {
             like = document.getElementById("like").checked;
             if (like == true) {
-                document.getElementById("name").value = null;
-                document.getElementById("email").value = null;
                 document.getElementById("nip").value = null;
-                document.getElementById("nik").value = null;
-                document.getElementById("address").value = null;
-                document.getElementById("phone").value = null;
-                document.getElementById("roles").value = null;
+                document.getElementById("nama").value = null;
+                document.getElementById("hari_absen").value = null;
+                document.getElementById("tgl_start").value = null;
+                document.getElementById("tgl_end").value = null;
+                document.getElementById("skor").value = null;
+                // document.getElementById("keterangan").value = null;
                 // document.getElementById("name").value = null;
                 $('#type').val("").trigger('change')
                 document.getElementById("id_where").style.display = 'none';
@@ -221,14 +258,13 @@
         $(document).ready(function() {
             like = document.getElementById("like").checked;
             if (like == true) {
-                document.getElementById("name").value = null;
-                document.getElementById("email").value = null;
                 document.getElementById("nip").value = null;
-                document.getElementById("nik").value = null;
-                document.getElementById("address").value = null;
-                document.getElementById("phone").value = null;
-                document.getElementById("roles").value = null;
-                // document.getElementById("name").value = null;
+                document.getElementById("nama").value = null;
+                document.getElementById("hari_absen").value = null;
+                document.getElementById("tgl_start").value = null;
+                document.getElementById("tgl_end").value = null;
+                document.getElementById("skor").value = null;
+                // document.getElementById("keterangan").value = null;
                 $('#type').val("").trigger('change')
                 document.getElementById("id_where").style.display = 'none';
                 document.getElementById("id_like").style.display = 'block';
@@ -247,33 +283,33 @@
                 serverSide: true,
                 responsive: true,
                 ajax: {
-                    url: "{{ route('pengguna.get_data_adminiptrator') }}",
+                    url: "{{ route('get_data_laporan') }}",
                     data: function(d) {
-                        d.name = (document.getElementById("name").value
+                        d.nip = (document.getElementById("nip").value
                                 .length != 0) ?
                             document
                             .getElementById(
-                                "name").value : null;
-                        d.email = (document.getElementById("email").value.length != 0) ?
-                            document
-                            .getElementById(
-                                "email").value : null;
-                        d.nip = (document.getElementById("nip").value.length != 0) ?
-                            document
-                            .getElementById(
                                 "nip").value : null;
-                        d.address = (document.getElementById("address").value.length != 0) ?
+                        d.nama = (document.getElementById("nama").value.length != 0) ?
                             document
                             .getElementById(
-                                "address").value : null;
-                        d.phone = (document.getElementById("phone").value.length != 0) ?
+                                "nama").value : null;
+                        d.hari_absen = (document.getElementById("hari_absen").value.length != 0) ?
                             document
                             .getElementById(
-                                "phone").value : null;
-                        d.roles = (document.getElementById("roles").value.length != 0) ?
+                                "hari_absen").value : null;
+                        d.skor = (document.getElementById("skor").value.length != 0) ?
                             document
                             .getElementById(
-                                "roles").value : null;
+                                "skor").value : null;
+                        d.tgl_start = (document.getElementById("tgl_start").value.length != 0) ?
+                            document
+                            .getElementById(
+                                "tgl_start").value : null;
+                        d.tgl_end = (document.getElementById("tgl_end").value.length != 0) ?
+                            document
+                            .getElementById(
+                                "tgl_end").value : null;
                         d.search_manual = (document.getElementById("search_manual").value
                                 .length != 0) ?
                             document
@@ -292,18 +328,18 @@
 
                     },
                     {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
                         data: 'nip',
-                        name: 'nip',
+                        name: 'nip'
+                    },
+                    {
+                        data: 'nama',
+                        name: 'nama'
+                    },
+                    {
+                        data: 'hari_absen',
+                        name: 'hari_absen',
                         render: function(data, type, row) {
-                            console.log("nip:", data); // Add this line to log the value
+                            console.log("hari_absen:", data); // Add this line to log the value
                             if (data == 0) {
                                 return '';
                             }
@@ -311,26 +347,35 @@
                         }
                     },
                     {
-                        data: 'address',
-                        name: 'address'
+                        data: 'absen_karyawan',
+                        name: 'absen_karyawan'
                     },
                     {
-                        data: 'phone',
-                        name: 'phone'
+                        data: 'keterlambatan',
+                        name: 'keterlambatan'
                     },
                     {
-                        data: 'roles',
-                        name: 'roles'
+                        data: 'skor',
+                        name: 'skor'
                     },
                     {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
+                        data: 'keterangan',
+                        name: 'keterangan'
                     },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+
+                    // {
+                    //     data: 'action',
+                    //     name: 'action',
+                    //     orderable: false,
+                    //     searchable: false
+                    // },
                 ]
             });
 
         });
-    </script> --}}
+    </script>
 @endsection

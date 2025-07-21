@@ -19,8 +19,8 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class UserController extends Controller
 {
-    protected $title = 'Evoting';
-    protected $menu = 'Evoting';
+    protected $title = 'Administrator';
+    protected $menu = 'User';
     protected $siswa = 'Siswa';
     protected $guru = 'Guru';
     protected $admin = 'administrator';
@@ -458,6 +458,10 @@ class UserController extends Controller
             'title' => $this->title,
             'menu' => $this->menu,
             'label' => "Data Admin",
+            'data_user' => User::where('roles', 'administrator')
+                ->whereNull('deleted_at')
+                ->orderBy('id', 'DESC')
+                ->get(),
         ];
 
         return view('user.administrator.admin')->with($data);
