@@ -35,6 +35,8 @@
     <!-- END layout-wrapper -->
     <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script> --}}
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script type="text/javascript">
         // Pop up for delete confirm
         $('.delete_confirm').on('click', function(event) {
