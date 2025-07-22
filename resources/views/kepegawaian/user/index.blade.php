@@ -11,16 +11,16 @@
                                 <li class="breadcrumb-item">{{ ucwords($menu) }}</li>
                             </ol>
                         </div>
-                        {{-- <div class="page-title-right">
+                        <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 @if (Auth::user()->id == 1)
-                                    <a href="{{ route('pengguna.tambah_adminiptrator') }}" type="button"
+                                    <a href="{{ route('user_admin.create') }}" type="button"
                                         class="float-end btn btn-success btn-rounded waves-effect waves-light mb-2 me-2">
-                                        <i class="mdi mdi-plus me-1"></i> Adminiptrator
+                                        <i class="mdi mdi-plus me-1"></i> Tambah
                                     </a>
                                 @endif
                             </ol>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,22 +38,20 @@
                                         <th>NIP</th>
                                         <th>Alamat</th>
                                         <th>Telepon</th>
-                                        {{-- <th>Nik</th> --}}
                                         <th>Roles</th>
-                                        {{-- <th>Aksi</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ( $data_user as $user )
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->nip }}</td>
-                                        <td>{{ $user->address }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->roles }}</td>
-                                     </tr>
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->nip }}</td>
+                                            <td>{{ $user->address }}</td>
+                                            <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->roles }}</td>
+                                        </tr>
                                     @endforeach
                                      
                                 </tbody>
