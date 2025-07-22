@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    protected $title = 'Evoting';
+    protected $title = 'Dashboard';
     protected $menu = 'beranda';
 
     public function index()

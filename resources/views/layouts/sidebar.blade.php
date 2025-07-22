@@ -17,7 +17,7 @@
                      </a>
                  </li>
                   <li>
-                         <a href="{{ route('pengguna.admin') }}" class="waves-effect">
+                         <a href="{{ route('user_admin.index') }}" class="waves-effect">
                              <i class="bx bx-aperture"></i>
                              <span key="t-icons">User Management</span>
                          </a>

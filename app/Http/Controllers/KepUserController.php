@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\AlertHelper;
-use App\Models\KepSkorModel;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 
-class KepSkorController extends Controller
+class KepUserController extends Controller
 {
-    protected $title = 'Nilai Skor';
-    protected $menu = 'Nilai Skor';
-
+    protected $title = 'User';
+    protected $menu = 'User Administrator';
+    
     /**
      * Display a listing of the resource.
      *
@@ -20,14 +17,17 @@ class KepSkorController extends Controller
      */
     public function index()
     {
-        $data = [
+         $data = [
             'title' => $this->title,
             'menu' => $this->menu,
-            'label' => $this->menu,
-            'data_skor' => KepSkorModel::whereNull('deleted_at')->get(),
+            'label' => "Data Admin",
+            'data_user' => User::where('roles', 'administrator')
+                ->whereNull('deleted_at')
+                ->orderBy('id', 'DESC')
+                ->get(),
         ];
 
-        return view('kepegawaian.skor.index')->with($data);
+        return view('kepegawaian.user.index')->with($data);
     }
 
     /**
@@ -37,14 +37,13 @@ class KepSkorController extends Controller
      */
     public function create()
     {
-        $data = [
+         $data = [
             'title' => $this->title,
             'menu' => $this->menu,
-            'label' => $this->menu,
+            'label' => $this->title,
             
         ];
-
-        return view('kepegawaian.skor.tambah')->with($data);
+        return view('kepegawaian.user.tambah')->with($data);
     }
 
     /**
@@ -53,37 +52,10 @@ class KepSkorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
-
-public function store(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'status_kehadiran' => 'required|string|max:50',
-        'skor'             => 'required|integer|min:0|max:100',
-        'keterangan'       => 'nullable|string|max:50',
-    ]);
-
-   
-
-    DB::beginTransaction();
-    try {
-        $data = new KepSkorModel();
-        $data->status_kehadiran = $request->status_kehadiran;
-        $data->skor             = $request->skor;
-        $data->keterangan       = $request->keterangan;
-        $data->save();
-
-            DB::commit();
-            AlertHelper::addAlert(true);
-            return redirect('skor_data');
-        } catch (\Throwable $err) {
-            DB::rollback();
-            throw $err;
-            AlertHelper::addAlert(false);
-            return back();
-        }
-}
-
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.

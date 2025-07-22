@@ -15,8 +15,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class KepSettingController extends Controller
 {
-    protected $title = 'Setting';
-    protected $menu = 'Setting';
+    protected $title = 'Jam Kerja';
+    protected $menu = 'Jam Kerja';
     /**
      * Display a listing of the resource.
      *

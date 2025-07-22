@@ -13,6 +13,7 @@ use App\Http\Controllers\KepPegawaiController;
 use App\Http\Controllers\KepRankingController;
 use App\Http\Controllers\KepSettingController;
 use App\Http\Controllers\KepSkorController;
+use App\Http\Controllers\KepUserController;
 use App\Http\Controllers\ListAbsenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -54,6 +55,7 @@ Route::group(
 
 
         // kepegawaian
+        Route::resource('/user_admin', KepUserController::class);
         Route::resource('/setting_data', KepSettingController::class);
         Route::resource('/departemen', KepDepartemenController::class);
         Route::resource('/jabatan_data', KepJabatanController::class);

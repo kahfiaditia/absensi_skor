@@ -13,8 +13,8 @@ use Milon\Barcode\DNS1D;
 
 class KepPegawaiController extends Controller
 {
-    protected $title = 'Pegawai';
-    protected $menu = 'Pegawai';
+    protected $title = 'Data Pegawai';
+    protected $menu = 'Data Pegawai';
     /**
      * Display a listing of the resource.
      *
