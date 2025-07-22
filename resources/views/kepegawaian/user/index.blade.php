@@ -59,7 +59,7 @@
                                         <td class="fw-semibold">
                                             <div class="d-flex align-items-center">
                                                 @if($user->avatar)
-                                                <img src="{{ asset('storage/'.$user->avatar) }}" 
+                                                <img src="{{ asset('assets/avatar/'.$user->avatar) }}" 
                                                      class="rounded-circle me-3" 
                                                      width="36" height="36" 
                                                      alt="{{ $user->name }}">
